@@ -46,6 +46,7 @@
     function GetWishes(_page){
         
         var _offset = (_page - 1) * 2;
+        console.log(_offset, _page)
         $.ajax({
             url : '/getWish',
             type : 'POST',
@@ -155,7 +156,7 @@
                 var result = JSON.parse(res);
                 if(result.status == 'OK'){
                     $('#deleteModal').modal('hide');
-                    GetWishes();
+                    GetWishes(1);
                 }
                 else{
                     alert(result.status);   

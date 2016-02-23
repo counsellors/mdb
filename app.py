@@ -135,6 +135,7 @@ def getWish():
 
             con = mysql.connect()
             cursor = con.cursor()
+            print _user,_limit,_offset,_total_records
             cursor.callproc('sp_GetWishByUser',(_user,_limit,_offset,_total_records))
             wishes = cursor.fetchall()
             cursor.close()
