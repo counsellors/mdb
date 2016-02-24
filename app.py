@@ -107,10 +107,24 @@ def addWish():
             _title = request.form['inputTitle']
             _description = request.form['inputDescription']
             _user = session.get('user')
+            if request.form.get('filePath') is None:
+                _filePath = ''
+            else:
+                _filePath = request.form.get('filePath')
+                 
+            if request.form.get('private') is None:
+                _private = 0
+            else:
+                _private = 1
+                 
+            if request.form.get('done') is None:
+                _done = 0
+            else:
+                _done = 1
  
             conn = mysql.connect()
             cursor = conn.cursor()
-            cursor.callproc('sp_addWish',(_title,_description,_user))
+            cursor.callproc('sp_addWish',(_title,_description,_user,_filePath,_private,_done))
             data = cursor.fetchall()
  
             if len(data) is 0:
@@ -181,7 +195,9 @@ def getWishById():
             result = cursor.fetchall()
  
             wish = []
-            wish.append({'Id':result[0][0],'Title':result[0][1],'Description':result[0][2]})
+            wish.append({'Id':result[0][0],'Title':result[0][1]
+                ,'Description':result[0][2],'FilePath':result[0][3]
+                ,'Private':result[0][4],'Done':result[0][5]})
  
             return json.dumps(wish)
         else:
@@ -197,10 +213,13 @@ def updateWish():
             _title = request.form['title']
             _description = request.form['description']
             _wish_id = request.form['id']
+            _filePath = request.form['filePath']
+            _isPrivate = request.form['isPrivate']
+            _isDone = request.form['isDone']
  
             conn = mysql.connect()
             cursor = conn.cursor()
-            cursor.callproc('sp_updateWish',(_title,_description,_wish_id,_user))
+            cursor.callproc('sp_updateWish',(_title,_description,_wish_id,_user,_filePath,_isPrivate,_isDone))
             data = cursor.fetchall()
  
             if len(data) is 0:
