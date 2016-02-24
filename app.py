@@ -285,24 +285,22 @@ def getAllWishes():
             cursor = conn.cursor()
             cursor.callproc('sp_GetAllWishes')
             result = cursor.fetchall()
-         
- 
-         
+
             wishes_dict = []
             for wish in result:
                 wish_dict = {
-                        'Id': wish[0],
-                        'Title': wish[1],
-                        'Description': wish[2],
-                        'FilePath': wish[3]}
+                    'Id': wish[0],
+                    'Title': wish[1],
+                    'Description': wish[2],
+                    'FilePath': wish[3],
+                    'Like':wish[4]}
                 wishes_dict.append(wish_dict)       
- 
-            
- 
+            print json.dumps(wishes_dict)
             return json.dumps(wishes_dict)
         else:
             return render_template('error.html', error = 'Unauthorized Access')
     except Exception as e:
+        print e
         return render_template('error.html',error = str(e))
 
 @app.route('/addUpdateLike',methods=['POST'])
@@ -321,7 +319,16 @@ def addUpdateLike():
  
             if len(data) is 0:
                 conn.commit()
-                return json.dumps({'status':'OK'})
+                cursor.close()
+                conn.close()
+
+                conn = mysql.connect()
+                cursor = conn.cursor()
+                cursor.callproc('sp_getLikeStatus',(_wishId,_user))
+                
+                result = cursor.fetchall()      
+
+                return json.dumps({'status':'OK','total':result[0][0],'likeStatus':result[0][1]})
             else:
                 return render_template('error.html',error = 'An error occurred!')
  
