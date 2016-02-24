@@ -71,7 +71,7 @@ def validateLogin():
         if len(data) > 0:
             if check_password_hash(str(data[0][3]), _password):
                 session['user'] = data[0][0]
-                return redirect("/userHome")
+                return redirect('/showDashboard')
             else:
                 # return json.dumps({'error':str(data[0])})
                 return render_template("error.html",error="Wrong Email address!")
@@ -272,6 +272,38 @@ def upload():
     except Exception, e:
         print  e
 
+@app.route('/showDashboard')
+def showDashboard():
+    return render_template('dashboard.html')
 
+@app.route('/getAllWishes')
+def getAllWishes():
+    try:
+        if session.get('user'):
+             
+            conn = mysql.connect()
+            cursor = conn.cursor()
+            cursor.callproc('sp_GetAllWishes')
+            result = cursor.fetchall()
+         
+ 
+         
+            wishes_dict = []
+            for wish in result:
+                wish_dict = {
+                        'Id': wish[0],
+                        'Title': wish[1],
+                        'Description': wish[2],
+                        'FilePath': wish[3]}
+                wishes_dict.append(wish_dict)       
+ 
+            
+ 
+            return json.dumps(wishes_dict)
+        else:
+            return render_template('error.html', error = 'Unauthorized Access')
+    except Exception as e:
+        return render_template('error.html',error = str(e))
+        
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
