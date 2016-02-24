@@ -304,6 +304,35 @@ def getAllWishes():
             return render_template('error.html', error = 'Unauthorized Access')
     except Exception as e:
         return render_template('error.html',error = str(e))
-        
+
+@app.route('/addUpdateLike',methods=['POST'])
+def addUpdateLike():
+    try:
+        if session.get('user'):
+            _wishId = request.form['wish']
+            _like = request.form['like']
+            _user = session.get('user')
+            
+ 
+            conn = mysql.connect()
+            cursor = conn.cursor()
+            cursor.callproc('sp_AddUpdateLikes',(_wishId,_user,_like))
+            data = cursor.fetchall()
+ 
+            if len(data) is 0:
+                conn.commit()
+                return json.dumps({'status':'OK'})
+            else:
+                return render_template('error.html',error = 'An error occurred!')
+ 
+        else:
+            return render_template('error.html',error = 'Unauthorized Access')
+    except Exception as e:
+        print e
+        return render_template('error.html',error = str(e))
+    finally:
+        cursor.close()
+        conn.close()
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
