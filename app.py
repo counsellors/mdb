@@ -178,7 +178,7 @@ def getWish():
         else:
             return render_template('index.html', error = 'Unauthorized Access')
     except Exception as e:
-        print e
+        print e,"nothissngaaaa"
         return render_template('error.html', error=str(e))
 
 @app.route('/getWishById',methods=['POST'])
