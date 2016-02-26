@@ -2,10 +2,15 @@
 
 import os
 import uuid
+import random
+import time
+from celery import Celery
 from flask.ext.mysql import MySQL
 from flask import session
 from flask import Flask, render_template, json, request,redirect
 from werkzeug import generate_password_hash, check_password_hash
+
+
 app = Flask(__name__)
 mysql = MySQL()
 pageLimit = 2
@@ -16,7 +21,12 @@ app.config["MYSQL_DATABASE_PASSWORD"] = "toor"
 app.config["MYSQL_DATABASE_DB"] = "sdb"
 app.config["MYSQL_DATABASE_HOST"] = "localhost"
 app.config['UPLOAD_FOLDER'] = './static/Uploads'
+app.config['CELERY_RESULT_BACKEND'] = "amqp"
+app.config['CELERY_BROKER_URL'] = "amqp://guest@localhost//"
+
 mysql.init_app(app)
+celery = Celery(app.name,broker=app.config['CELERY_BROKER_URL'])
+celery.conf.update(app.config)
 
 @app.route("/")
 def main():
@@ -340,6 +350,36 @@ def addUpdateLike():
     finally:
         cursor.close()
         conn.close()
+
+@celery.task(bind=True)
+def long_task(self):
+    """Background task that runs a long function with progress reports."""
+    verb = ['Starting up', 'Booting', 'Repairing', 'Loading', 'Checking']
+    adjective = ['master', 'radiant', 'silent', 'harmonic', 'fast']
+    noun = ['solar array', 'particle reshaper', 'cosmic ray', 'orbiter', 'bit']
+    message = ''
+    total = random.randint(10, 50)
+    for i in range(total):
+        if not message or random.random() < 0.25:
+            message = '{0} {1} {2}...'.format(random.choice(verb),
+                                              random.choice(adjective),
+                                              random.choice(noun))
+        # celery task's function used to update some dynamic data
+        self.update_state(state='PROGRESS',
+                          meta={'current': i, 'total': total,
+                                'status': message})
+        time.sleep(1)
+    print "[in celery task]"
+    return {'current': 100, 'total': 100, 'status': 'Task completed!',
+            'result': 42}
+
+@app.route('/longtask', methods=['GET'])
+def longtask():
+    try:
+        task = long_task.apply_async()
+        return task.task_id
+    except Exception,e:
+        print e
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
