@@ -3,576 +3,115 @@
     <head>
         <meta charset="UTF-8">
         <title>Test</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-        <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+        <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="../static/css/main.css">
         <script src="../static/js/jquery-2.2.0.min.js"></script>
+        <script src="../static/bootstrap/js/bootstrap.min.js"></script>
         <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}">
         <!-- <link rel="stylesheet" href="css/main.css"> -->
-        >
-        <div class="top">
-        </div>
-        <div class="container">
-            <div class="row">
-                <div id="logo-2014">
-                    <a href="#" class="logo">京东</a>
+        <style type="text/css">
+            /* Custom Styles */
+            ul.nav-tabs{
+                width: 140px;
+                margin-top: 20px;
+                border-radius: 4px;
+                border: 1px solid #ddd;
+                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+            }
+            ul.nav-tabs li{
+                margin: 0;
+                border-top: 1px solid #ddd;
+            }
+            ul.nav-tabs li:first-child{
+                border-top: none;
+            }
+            ul.nav-tabs li a{
+                margin: 0;
+                padding: 8px 16px;
+                border-radius: 0;
+            }
+            ul.nav-tabs li.active a, ul.nav-tabs li.active a:hover{
+                color: #fff;
+                background: #0088cc;
+                border: 1px solid #0088cc;
+            }
+            ul.nav-tabs li:first-child a{
+                border-radius: 4px 4px 0 0;
+            }
+            ul.nav-tabs li:last-child a{
+                border-radius: 0 0 4px 4px;
+            }
+            ul.nav-tabs.affix{
+                top: 30px; /* Set the top position of pinned element */
+            }
+        </style>
+     <script type="text/javascript">
+        // $(document).ready(function(){
+        //     $("#myNav").affix({
+        //         offset: { 
+        //             top: 125 
+        //         }
+        //     });
+        // });
+    </script>
+        <body  data-spy="scroll" data-target="#myScrollspy">
+            <!--导航 Start-->
+            <nav class="navbar navbar-default" role="navigation">
+               <div class="navbar-header">
+                  <a class="navbar-brand" href="#">W3Cschool</a>
+               </div>
+               <div>
+                  <form class="navbar-form navbar-left" role="search">
+                     <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                     </div>
+                     <button type="submit" class="btn btn-default">搜索</button>
+                  </form>    
+               </div>
+            </nav>
+
+            <div class="container">
+                <div class="jumbotron">
+                    <h1>Bootstrap Affix</h1>
                 </div>
-                <div class="col-md-6">
-                    <div id="custom-search-input">
-                        <div class="input-group col-md-12">
-                            <input type="text" class="form-control search-query" placeholder="Search" />
-                            <span class="input-group-btn">
-                                <button class="btn btn-danger" type="button">
-                                <i class="glyphicon glyphicon-search"></i>
-                                </button>
-                            </span>
-                        </div>
+                <div class="row">
+                    <div class="well col-xs-3">
+                        <ul class="list-group">
+                        <a href="#section-1" class="list-group-item active">第一部分</a>
+                        <a href="#section-2" class="list-group-item">第二部分</a>
+                        <a href="#section-3" class="list-group-item">第三部分</a>
+                        <a href="#section-4" class="list-group-item">第四部分</a>
+                        <a href="#section-5" class="list-group-item">第五部分</a>
+                    </ul>
+                    </div>
+                    <div class="col-xs-9">
+                        <h2 id="section-1">第一部分</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam at, luctus dui. Mauris magna metus, dapibus nec turpis vel, semper malesuada ante. Vestibulum id metus ac nisl bibendum scelerisque non non purus. Suspendisse varius nibh non aliquet sagittis. In tincidunt orci sit amet elementum vestibulum. Vivamus fermentum in arcu in aliquam. Quisque aliquam porta odio in fringilla. Vivamus nisl leo, blandit at bibendum eu, tristique eget risus. Integer aliquet quam ut elit suscipit, id interdum neque porttitor. Integer faucibus ligula.</p>
+                        <p>Vestibulum quis quam ut magna consequat faucibus. Pellentesque eget nisi a mi suscipit tincidunt. Ut tempus dictum risus. Pellentesque viverra sagittis quam at mattis. Suspendisse potenti. Aliquam sit amet gravida nibh, facilisis gravida odio. Phasellus auctor velit at lacus blandit, commodo iaculis justo viverra. Etiam vitae est arcu. Mauris vel congue dolor. Aliquam eget mi mi. Fusce quam tortor, commodo ac dui quis, bibendum viverra erat. Maecenas mattis lectus enim, quis tincidunt dui molestie euismod. Curabitur et diam tristique, accumsan nunc eu, hendrerit tellus.</p>
+                        <hr>
+                        <h2 id="section-2">第二部分</h2>
+                        <p>Nullam hendrerit justo non leo aliquet imperdiet. Etiam in sagittis lectus. Suspendisse ultrices placerat accumsan. Mauris quis dapibus orci. In dapibus velit blandit pharetra tincidunt. Quisque non sapien nec lacus condimentum facilisis ut iaculis enim. Sed viverra interdum bibendum. Donec ac sollicitudin dolor. Sed fringilla vitae lacus at rutrum. Phasellus congue vestibulum ligula sed consequat.</p>
+                        <p>Vestibulum consectetur scelerisque lacus, ac fermentum lorem convallis sed. Nam odio tortor, dictum quis malesuada at, pellentesque vitae orci. Vivamus elementum, felis eu auctor lobortis, diam velit egestas lacus, quis fermentum metus ante quis urna. Sed at facilisis libero. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum bibendum blandit dolor. Nunc orci dolor, molestie nec nibh in, hendrerit tincidunt ante. Vivamus sem augue, hendrerit non sapien in, mollis ornare augue.</p>
+                        <hr>
+                        <h2 id="section-3">第三部分</h2>
+                        <p>Integer pulvinar leo id risus pellentesque vestibulum. Sed diam libero, sodales eget sapien vel, porttitor bibendum enim. Donec sed nibh vitae lorem porttitor blandit in nec ante. Pellentesque vitae metus ipsum. Phasellus sed nunc ac sem malesuada condimentum. Etiam in aliquam lectus. Nam vel sapien diam. Donec pharetra id arcu eget blandit. Proin imperdiet mattis augue in porttitor. Quisque tempus enim id lobortis feugiat. Suspendisse tincidunt risus quis dolor fringilla blandit. Ut sed sapien at purus lacinia porttitor. Nullam iaculis, felis a pretium ornare, dolor nisl semper tortor, vel sagittis lacus est consequat eros. Sed id pretium nisl. Curabitur dolor nisl, laoreet vitae aliquam id, tincidunt sit amet mauris.</p>
+                        <p>Phasellus vitae suscipit justo. Mauris pharetra feugiat ante id lacinia. Etiam faucibus mauris id tempor egestas. Duis luctus turpis at accumsan tincidunt. Phasellus risus risus, volutpat vel tellus ac, tincidunt fringilla massa. Etiam hendrerit dolor eget ante rutrum adipiscing. Cras interdum ipsum mattis, tempus mauris vel, semper ipsum. Duis sed dolor ut enim lobortis pellentesque ultricies ac ligula. Pellentesque convallis elit nisi, id vulputate ipsum ullamcorper ut. Cras ac pulvinar purus, ac viverra est. Suspendisse potenti. Integer pellentesque neque et elementum tempus. Curabitur bibendum in ligula ut rhoncus.</p>
+                        <p>Quisque pharetra velit id velit iaculis pretium. Nullam a justo sed ligula porta semper eu quis enim. Pellentesque pellentesque, metus at facilisis hendrerit, lectus velit facilisis leo, quis volutpat turpis arcu quis enim. Nulla viverra lorem elementum interdum ultricies. Suspendisse accumsan quam nec ante mollis tempus. Morbi vel accumsan diam, eget convallis tellus. Suspendisse potenti.</p>
+                        <hr>
+                        <h2 id="section-4">第四部分</h2>
+                        <p>Suspendisse a orci facilisis, dignissim tortor vitae, ultrices mi. Vestibulum a iaculis lacus. Phasellus vitae convallis ligula, nec volutpat tellus. Vivamus scelerisque mollis nisl, nec vehicula elit egestas a. Sed luctus metus id mi gravida, faucibus convallis neque pretium. Maecenas quis sapien ut leo fringilla tempor vitae sit amet leo. Donec imperdiet tempus placerat. Pellentesque pulvinar ultrices nunc sed ultrices. Morbi vel mi pretium, fermentum lacus et, viverra tellus. Phasellus sodales libero nec dui convallis, sit amet fermentum sapien auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed eu elementum nibh, quis varius libero.</p>
+                        <p>Vestibulum quis quam ut magna consequat faucibus. Pellentesque eget nisi a mi suscipit tincidunt. Ut tempus dictum risus. Pellentesque viverra sagittis quam at mattis. Suspendisse potenti. Aliquam sit amet gravida nibh, facilisis gravida odio. Phasellus auctor velit at lacus blandit, commodo iaculis justo viverra. Etiam vitae est arcu. Mauris vel congue dolor. Aliquam eget mi mi. Fusce quam tortor, commodo ac dui quis, bibendum viverra erat. Maecenas mattis lectus enim, quis tincidunt dui molestie euismod. Curabitur et diam tristique, accumsan nunc eu, hendrerit tellus.</p>
+                        <p>Phasellus fermentum, neque sit amet sodales tempor, enim ante interdum eros, eget luctus ipsum eros ut ligula. Nunc ornare erat quis faucibus molestie. Proin malesuada consequat commodo. Mauris iaculis, eros ut dapibus luctus, massa enim elementum purus, sit amet tristique purus purus nec felis. Morbi vestibulum sapien eget porta pulvinar. Nam at quam diam. Proin rhoncus, felis elementum accumsan dictum, felis nisi vestibulum tellus, et ultrices risus felis in orci. Quisque vestibulum sem nisl, vel congue leo dictum nec. Cras eget est at velit sagittis ullamcorper vel et lectus. In hac habitasse platea dictumst. Etiam interdum iaculis velit, vel sollicitudin lorem feugiat sit amet. Etiam luctus, quam sed sodales aliquam, lorem libero hendrerit urna, faucibus rhoncus massa nibh at felis. Curabitur ac tempus nulla, ut semper erat. Vivamus porta ullamcorper sem, ornare egestas mauris facilisis id.</p>
+                        <p>Ut ut risus nisl. Fusce porttitor eros at magna luctus, non congue nulla eleifend. Aenean porttitor feugiat dolor sit amet facilisis. Pellentesque venenatis magna et risus commodo, a commodo turpis gravida. Nam mollis massa dapibus urna aliquet, quis iaculis elit sodales. Sed eget ornare orci, eu malesuada justo. Nunc lacus augue, dictum quis dui id, lacinia congue quam. Nulla sem sem, aliquam nec dolor ac, tempus convallis nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla suscipit convallis iaculis. Quisque eget commodo ligula. Praesent leo dui, facilisis quis eleifend in, aliquet vitae nunc. Suspendisse fermentum odio ac massa ultricies pellentesque. Fusce eu suscipit massa.</p>
+                        <hr>
+                        <h2 id="section-5">第五部分</h2>
+                        <p>Nam eget purus nec est consectetur vehicula. Nullam ultrices nisl risus, in viverra libero egestas sit amet. Etiam porttitor dolor non eros pulvinar malesuada. Vestibulum sit amet est mollis nulla tempus aliquet. Praesent luctus hendrerit arcu non laoreet. Morbi consequat placerat magna, ac ornare odio sagittis sed. Donec vitae ullamcorper purus. Vivamus non metus ac justo porta volutpat.</p>
+                        <p>Vivamus mattis accumsan erat, vel convallis risus pretium nec. Integer nunc nulla, viverra ut sem non, scelerisque vehicula arcu. Fusce bibendum convallis augue sit amet lobortis. Cras porta urna turpis, sodales lobortis purus adipiscing id. Maecenas ullamcorper, turpis suscipit pellentesque fringilla, massa lacus pulvinar mi, nec dignissim velit arcu eget purus. Nam at dapibus tellus, eget euismod nisl. Ut eget venenatis sapien. Vivamus vulputate varius mauris, vel varius nisl facilisis ac. Nulla aliquet justo a nibh ornare, eu congue neque rutrum.</p>
+                        <p>Suspendisse a orci facilisis, dignissim tortor vitae, ultrices mi. Vestibulum a iaculis lacus. Phasellus vitae convallis ligula, nec volutpat tellus. Vivamus scelerisque mollis nisl, nec vehicula elit egestas a. Sed luctus metus id mi gravida, faucibus convallis neque pretium. Maecenas quis sapien ut leo fringilla tempor vitae sit amet leo. Donec imperdiet tempus placerat. Pellentesque pulvinar ultrices nunc sed ultrices. Morbi vel mi pretium, fermentum lacus et, viverra tellus. Phasellus sodales libero nec dui convallis, sit amet fermentum sapien auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed eu elementum nibh, quis varius libero.</p>
+                        <p>Morbi sed fermentum ipsum. Morbi a orci vulputate tortor ornare blandit a quis orci. Donec aliquam sodales gravida. In ut ullamcorper nisi, ac pretium velit. Vestibulum vitae lectus volutpat, consequat lorem sit amet, pulvinar tellus. In tincidunt vel leo eget pulvinar. Curabitur a eros non lacus malesuada aliquam. Praesent et tempus odio. Integer a quam nunc. In hac habitasse platea dictumst. Aliquam porta nibh nulla, et mattis turpis placerat eget. Pellentesque dui diam, pellentesque vel gravida id, accumsan eu magna. Sed a semper arcu, ut dignissim leo.</p>
+                        <p>Sed vitae lobortis diam, id molestie magna. Aliquam consequat ipsum quis est dictum ultrices. Aenean nibh velit, fringilla in diam id, blandit hendrerit lacus. Donec vehicula rutrum tellus eget fermentum. Pellentesque ac erat et arcu ornare tincidunt. Aliquam erat volutpat. Vivamus lobortis urna quis gravida semper. In condimentum, est a faucibus luctus, mi dolor cursus mi, id vehicula arcu risus a nibh. Pellentesque blandit sapien lacus, vel vehicula nunc feugiat sit amet.</p>
                     </div>
                 </div>
             </div>
-        </div>
-        <!--导航 Start-->
-        <div class="menu">
-            <div class="all-sort"><h2><a href="">全部商品分类</a></h2></div>
-            <div class="ad">
-                <a href="">
-                    <img src="images/rBEhVlJEA84IAAAAAAAZY9Mm2-UAADmFQNaVy4AABl7123.jpg" width="141" height="40" />
-                </a>
-            </div>
-            <div class="nav">
-                <ul class="clearfix">
-                    <li><a href="http://www.sucaijiayuan.com" class="current">首页</a></li>
-                    <li><a href="http://www.sucaijiayuan.com">服装城</a></li>
-                    <li><a href="http://www.sucaijiayuan.com">京东超市</a></li>
-                    <li><a href="http://www.sucaijiayuan.com">团购</a></li>
-                    <li><a href="http://www.sucaijiayuan.com">拍卖</a></li>
-                    <li><a href="http://www.sucaijiayuan.com">在线游戏</a></li>
-                </ul>
-            </div>
-        </div>
-        <!--导航 End-->
-        <!--所有分类 Start-->
-        <div class="wrap">
-            <div class="all-sort-list">
-                <div class="item bo">
-                    <h3><span>·</span><a href="">图书</a>、<a href="">音像</a>、<a href="">数字商品</a></h3>
-                    <div class="item-list clearfix">
-                        <div class="close">x</div>
-                        <div class="subitem">
-                            <dl class="fore1">
-                                <dt><a href="#">电子书0</a></dt>
-                                <dd><em><a href="#">免费</a></em><em><a href="#">小说</a></em><em><a href="#">励志与成功</a></em><em><a href="#">婚恋/两性</a></em><em><a href="#">文学</a></em><em><a href="#">经管</a></em><em><a href="#">畅读VIP</a></em></dd>
-                            </dl>
-                            <dl class="fore2">
-                                <dt><a href="#">数字音乐</a></dt>
-                                <dd><em><a href="#">通俗流行</a></em><em><a href="#">古典音乐</a></em><em><a href="#">摇滚说唱</a></em><em><a href="#">爵士蓝调</a></em><em><a href="#">乡村民谣</a></em><em><a href="#">有声读物</a></em></dd>
-                            </dl>
-                            <dl class="fore3">
-                                <dt><a href="#">音像</a></dt>
-                                <dd><em><a href="#">音乐</a></em><em><a href="#">影视</a></em><em><a href="#">教育音像</a></em><em><a href="#">游戏</a></em></dd>
-                            </dl>
-                            <dl class="fore4">
-                                <dt>文艺</dt>
-                                <dd><em><a href="#">小说</a></em><em><a href="#">文学</a></em><em><a href="#">青春文学</a></em><em><a href="#">传记</a></em><em><a href="#">艺术</a></em></dd>
-                            </dl>
-                            <dl class="fore5">
-                                <dt>人文社科</dt>
-                                <dd><em><a href="#">历史</a></em><em><a href="#">心理学</a></em><em><a href="#">政治/军事</a></em><em><a href="#">国学/古籍</a></em><em><a href="#">哲学/宗教</a></em><em><a href="#">社会科学</a></em></dd>
-                            </dl>
-                            <dl class="fore6">
-                                <dt>经管励志</dt>
-                                <dd><em><a href="#">经济</a></em><em><a href="#">金融与投资</a></em><em><a href="#">管理</a></em><em><a href="#">励志与成功</a></em></dd>
-                            </dl>
-                            <dl class="fore7">
-                                <dt>生活</dt>
-                                <dd><em><a href="#">家庭与育儿</a></em><em><a href="#">旅游/地图</a></em><em><a href="#">烹饪/美食</a></em><em><a href="#">时尚/美妆</a></em><em><a href="#">家居</a></em><em><a href="#">婚恋与两性</a></em><em><a href="#">娱乐/休闲</a></em><em><a href="#">健身与保健</a></em><em><a href="#">动漫/幽默</a></em><em><a href="#">体育/运动</a></em></dd>
-                            </dl>
-                            <dl class="fore8">
-                                <dt>科技</dt>
-                                <dd><em><a href="#">科普</a></em><em><a href="#">IT</a></em><em><a href="#">建筑</a></em><em><a href="#">医学</a></em><em><a href="#">工业技术</a></em><em><a href="#">电子/通信</a></em><em><a href="#">农林</a></em><em><a href="#">科学与自然</a></em></dd>
-                            </dl>
-                            <dl class="fore9">
-                                <dt>少儿</dt>
-                                <dd><em><a href="#">少儿</a></em><em><a href="#">0-2岁</a></em><em><a href="#">3-6岁</a></em><em><a href="#">7-10岁</a></em><em><a href="#">11-14岁</a></em></dd>
-                            </dl>
-                            <dl class="fore10">
-                                <dt>教育</dt>
-                                <dd><em><a href="#">教材教辅</a></em><em><a href="#">考试</a></em><em><a href="#">外语学习</a></em></dd>
-                            </dl>
-                            <dl class="fore11">
-                                <dt>其它</dt>
-                                <dd><em><a href="#">英文原版书</a></em><em><a href="#">港台图书</a></em><em><a href="#">工具书</a></em><em><a href="#">套装书</a></em><em><a href="#">杂志/期刊</a></em></dd>
-                            </dl>
-                        </div>
-                        <div class="cat-right">
-                            <dl class="categorys-promotions" clstag="homepage|keycount|home2013|0601c">
-                                <dd>
-                                <ul>
-                                    <li><a href="#" target="_blank"><img src="images/rBEhWFJTydgIAAAAAAAiD8_1J3AAAD5mAMC0SYAACIn230.jpg" width="194" height="70" title="特价书满减"></a></li>
-                                    <li><a href="#" target="_blank"><img src="images/rBEhVlJTyt8IAAAAAAAiq1D-0D8AAD7_gIE2KUAACLD102.jpg" width="194" height="70" title="重磅独家"></a></li>
-                                </ul>
-                                </dd>
-                            </dl>
-                            <dl class="categorys-brands" clstag="homepage|keycount|home2013|0601d">
-                                <dt>推荐品牌出版商</dt>
-                                <dd>
-                                <ul>
-                                    <li><a href="#" target="_blank">中华书局</a></li>
-                                    <li><a href="#" target="_blank">人民邮电出版社</a></li>
-                                    <li><a href="#" target="_blank">上海世纪出版股份有限公司</a></li>
-                                    <li><a href="#" target="_blank">电子工业出版社</a></li>
-                                    <li><a href="#" target="_blank">三联书店</a></li>
-                                    <li><a href="#" target="_blank">浙江少年儿童出版社</a></li>
-                                    <li><a href="#" target="_blank">人民文学出版社</a></li>
-                                    <li><a href="#" target="_blank">外语教学与研究出版社</a></li>
-                                    <li><a href="#" target="_blank">中信出版社</a></li>
-                                    <li><a href="#" target="_blank">化学工业出版社</a></li>
-                                    <li><a href="#" target="_blank">北京大学出版社</a></li>
-                                </ul>
-                                </dd>
-                            </dl>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <h3><span>·</span><a href="">图书</a>、<a href="">音像</a>、<a href="">数字商品</a></h3>
-                    <div class="item-list clearfix">
-                        <div class="close">x</div>
-                        <div class="subitem">
-                            <dl class="fore1">
-                                <dt><a href="#">电子书1</a></dt>
-                                <dd><em><a href="#">免费</a></em><em><a href="#">小说</a></em><em><a href="#">励志与成功</a></em><em><a href="#">婚恋/两性</a></em><em><a href="#">文学</a></em><em><a href="#">经管</a></em><em><a href="#">畅读VIP</a></em></dd>
-                            </dl>
-                            <dl class="fore2">
-                                <dt><a href="#">数字音乐</a></dt>
-                                <dd><em><a href="#">通俗流行</a></em><em><a href="#">古典音乐</a></em><em><a href="#">摇滚说唱</a></em><em><a href="#">爵士蓝调</a></em><em><a href="#">乡村民谣</a></em><em><a href="#">有声读物</a></em></dd>
-                            </dl>
-                            <dl class="fore3">
-                                <dt><a href="#">音像</a></dt>
-                                <dd><em><a href="#">音乐</a></em><em><a href="#">影视</a></em><em><a href="#">教育音像</a></em><em><a href="#">游戏</a></em></dd>
-                            </dl>
-                            <dl class="fore4">
-                                <dt>文艺</dt>
-                                <dd><em><a href="#">小说</a></em><em><a href="#">文学</a></em><em><a href="#">青春文学</a></em><em><a href="#">传记</a></em><em><a href="#">艺术</a></em></dd>
-                            </dl>
-                            <dl class="fore5">
-                                <dt>人文社科</dt>
-                                <dd><em><a href="#">历史</a></em><em><a href="#">心理学</a></em><em><a href="#">政治/军事</a></em><em><a href="#">国学/古籍</a></em><em><a href="#">哲学/宗教</a></em><em><a href="#">社会科学</a></em></dd>
-                            </dl>
-                            <dl class="fore6">
-                                <dt>经管励志</dt>
-                                <dd><em><a href="#">经济</a></em><em><a href="#">金融与投资</a></em><em><a href="#">管理</a></em><em><a href="#">励志与成功</a></em></dd>
-                            </dl>
-                            <dl class="fore7">
-                                <dt>生活</dt>
-                                <dd><em><a href="#">家庭与育儿</a></em><em><a href="#">旅游/地图</a></em><em><a href="#">烹饪/美食</a></em><em><a href="#">时尚/美妆</a></em><em><a href="#">家居</a></em><em><a href="#">婚恋与两性</a></em><em><a href="#">娱乐/休闲</a></em><em><a href="#">健身与保健</a></em><em><a href="#">动漫/幽默</a></em><em><a href="#">体育/运动</a></em></dd>
-                            </dl>
-                            <dl class="fore8">
-                                <dt>科技</dt>
-                                <dd><em><a href="#">科普</a></em><em><a href="#">IT</a></em><em><a href="#">建筑</a></em><em><a href="#">医学</a></em><em><a href="#">工业技术</a></em><em><a href="#">电子/通信</a></em><em><a href="#">农林</a></em><em><a href="#">科学与自然</a></em></dd>
-                            </dl>
-                            <dl class="fore9">
-                                <dt>少儿</dt>
-                                <dd><em><a href="#">少儿</a></em><em><a href="#">0-2岁</a></em><em><a href="#">3-6岁</a></em><em><a href="#">7-10岁</a></em><em><a href="#">11-14岁</a></em></dd>
-                            </dl>
-                        </div>
-                        <div class="cat-right">
-                            <dl class="categorys-promotions" clstag="homepage|keycount|home2013|0601c">
-                                <dd>
-                                <ul>
-                                    <li><a href="#" target="_blank"><img src="images/rBEhWFJTydgIAAAAAAAiD8_1J3AAAD5mAMC0SYAACIn230.jpg" width="194" height="70" title="特价书满减"></a></li>
-                                    <li><a href="#" target="_blank"><img src="images/rBEhVlJTyt8IAAAAAAAiq1D-0D8AAD7_gIE2KUAACLD102.jpg" width="194" height="70" title="重磅独家"></a></li>
-                                </ul>
-                                </dd>
-                            </dl>
-                            <dl class="categorys-brands" clstag="homepage|keycount|home2013|0601d">
-                                <dt>推荐品牌出版商</dt>
-                                <dd>
-                                <ul>
-                                    <li><a href="#" target="_blank">中华书局</a></li>
-                                    <li><a href="#" target="_blank">人民邮电出版社</a></li>
-                                    <li><a href="#" target="_blank">上海世纪出版股份有限公司</a></li>
-                                    <li><a href="#" target="_blank">电子工业出版社</a></li>
-                                    <li><a href="#" target="_blank">三联书店</a></li>
-                                    <li><a href="#" target="_blank">浙江少年儿童出版社</a></li>
-                                </ul>
-                                </dd>
-                            </dl>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <h3><span>·</span><a href="">图书</a>、<a href="">音像</a>、<a href="">数字商品</a></h3>
-                    <div class="item-list clearfix">
-                        <div class="close">x</div>
-                        <div class="subitem">
-                            <dl class="fore1">
-                                <dt><a href="#">电子书2</a></dt>
-                                <dd><em><a href="#">免费</a></em><em><a href="#">小说</a></em><em><a href="#">励志与成功</a></em><em><a href="#">婚恋/两性</a></em><em><a href="#">文学</a></em><em><a href="#">经管</a></em><em><a href="#">畅读VIP</a></em></dd>
-                            </dl>
-                            <dl class="fore2">
-                                <dt><a href="#">数字音乐</a></dt>
-                                <dd><em><a href="#">通俗流行</a></em><em><a href="#">古典音乐</a></em><em><a href="#">摇滚说唱</a></em><em><a href="#">爵士蓝调</a></em><em><a href="#">乡村民谣</a></em><em><a href="#">有声读物</a></em></dd>
-                            </dl>
-                            <dl class="fore3">
-                                <dt><a href="#">音像</a></dt>
-                                <dd><em><a href="#">音乐</a></em><em><a href="#">影视</a></em><em><a href="#">教育音像</a></em><em><a href="#">游戏</a></em></dd>
-                            </dl>
-                            <dl class="fore4">
-                                <dt>文艺</dt>
-                                <dd><em><a href="#">小说</a></em><em><a href="#">文学</a></em><em><a href="#">青春文学</a></em><em><a href="#">传记</a></em><em><a href="#">艺术</a></em></dd>
-                            </dl>
-                            <dl class="fore5">
-                                <dt>人文社科</dt>
-                                <dd><em><a href="#">历史</a></em><em><a href="#">心理学</a></em><em><a href="#">政治/军事</a></em><em><a href="#">国学/古籍</a></em><em><a href="#">哲学/宗教</a></em><em><a href="#">社会科学</a></em></dd>
-                            </dl>
-                        </div>
-                        <div class="cat-right">
-                            <dl class="categorys-brands" clstag="homepage|keycount|home2013|0601d">
-                                <dt>推荐品牌出版商</dt>
-                                <dd>
-                                <ul>
-                                    <li><a href="#" target="_blank">中华书局</a></li>
-                                    <li><a href="#" target="_blank">人民邮电出版社</a></li>
-                                    <li><a href="#" target="_blank">上海世纪出版股份有限公司</a></li>
-                                    <li><a href="#" target="_blank">电子工业出版社</a></li>
-                                    <li><a href="#" target="_blank">三联书店</a></li>
-                                    <li><a href="#" target="_blank">浙江少年儿童出版社</a></li>
-                                </ul>
-                                </dd>
-                            </dl>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <h3><span>·</span><a href="">图书</a>、<a href="">音像</a>、<a href="">数字商品</a></h3>
-                    <div class="item-list clearfix">
-                        <div class="close">x</div>
-                        <div class="subitem">
-                            <dl class="fore1">
-                                <dt><a href="#">电子书3</a></dt>
-                                <dd><em><a href="#">免费</a></em><em><a href="#">小说</a></em><em><a href="#">励志与成功</a></em><em><a href="#">婚恋/两性</a></em><em><a href="#">文学</a></em><em><a href="#">经管</a></em><em><a href="#">畅读VIP</a></em></dd>
-                            </dl>
-                            <dl class="fore2">
-                                <dt><a href="#">数字音乐</a></dt>
-                                <dd><em><a href="#">通俗流行</a></em><em><a href="#">古典音乐</a></em><em><a href="#">摇滚说唱</a></em><em><a href="#">爵士蓝调</a></em><em><a href="#">乡村民谣</a></em><em><a href="#">有声读物</a></em></dd>
-                            </dl>
-                            <dl class="fore3">
-                                <dt><a href="#">音像</a></dt>
-                                <dd><em><a href="#">音乐</a></em><em><a href="#">影视</a></em><em><a href="#">教育音像</a></em><em><a href="#">游戏</a></em></dd>
-                            </dl>
-                            <dl class="fore4">
-                                <dt>文艺</dt>
-                                <dd><em><a href="#">小说</a></em><em><a href="#">文学</a></em><em><a href="#">青春文学</a></em><em><a href="#">传记</a></em><em><a href="#">艺术</a></em></dd>
-                            </dl>
-                            <dl class="fore5">
-                                <dt>人文社科</dt>
-                                <dd><em><a href="#">历史</a></em><em><a href="#">心理学</a></em><em><a href="#">政治/军事</a></em><em><a href="#">国学/古籍</a></em><em><a href="#">哲学/宗教</a></em><em><a href="#">社会科学</a></em></dd>
-                            </dl>
-                            <dl class="fore6">
-                                <dt>经管励志</dt>
-                                <dd><em><a href="#">经济</a></em><em><a href="#">金融与投资</a></em><em><a href="#">管理</a></em><em><a href="#">励志与成功</a></em></dd>
-                            </dl>
-                            <dl class="fore7">
-                                <dt>生活</dt>
-                                <dd><em><a href="#">家庭与育儿</a></em><em><a href="#">旅游/地图</a></em><em><a href="#">烹饪/美食</a></em><em><a href="#">时尚/美妆</a></em><em><a href="#">家居</a></em><em><a href="#">婚恋与两性</a></em><em><a href="#">娱乐/休闲</a></em><em><a href="#">健身与保健</a></em><em><a href="#">动漫/幽默</a></em><em><a href="#">体育/运动</a></em></dd>
-                            </dl>
-                            <dl class="fore8">
-                                <dt>科技</dt>
-                                <dd><em><a href="#">科普</a></em><em><a href="#">IT</a></em><em><a href="#">建筑</a></em><em><a href="#">医学</a></em><em><a href="#">工业技术</a></em><em><a href="#">电子/通信</a></em><em><a href="#">农林</a></em><em><a href="#">科学与自然</a></em></dd>
-                            </dl>
-                            <dl class="fore9">
-                                <dt>少儿</dt>
-                                <dd><em><a href="#">少儿</a></em><em><a href="#">0-2岁</a></em><em><a href="#">3-6岁</a></em><em><a href="#">7-10岁</a></em><em><a href="#">11-14岁</a></em></dd>
-                            </dl>
-                            <dl class="fore10">
-                                <dt>教育</dt>
-                                <dd><em><a href="#">教材教辅</a></em><em><a href="#">考试</a></em><em><a href="#">外语学习</a></em></dd>
-                            </dl>
-                            <dl class="fore11">
-                                <dt>其它</dt>
-                                <dd><em><a href="#">英文原版书</a></em><em><a href="#">港台图书</a></em><em><a href="#">工具书</a></em><em><a href="#">套装书</a></em><em><a href="#">杂志/期刊</a></em></dd>
-                            </dl>
-                        </div>
-                        <div class="cat-right">
-                            <dl class="categorys-promotions" clstag="homepage|keycount|home2013|0601c">
-                                <dd>
-                                <ul>
-                                    <li><a href="#" target="_blank"><img src="images/rBEhWFJTydgIAAAAAAAiD8_1J3AAAD5mAMC0SYAACIn230.jpg" width="194" height="70" title="特价书满减"></a></li>
-                                    <li><a href="#" target="_blank"><img src="images/rBEhVlJTyt8IAAAAAAAiq1D-0D8AAD7_gIE2KUAACLD102.jpg" width="194" height="70" title="重磅独家"></a></li>
-                                </ul>
-                                </dd>
-                            </dl>
-                            <dl class="categorys-brands" clstag="homepage|keycount|home2013|0601d">
-                                <dt>推荐品牌出版商</dt>
-                                <dd>
-                                <ul>
-                                    <li><a href="#" target="_blank">中华书局</a></li>
-                                    <li><a href="#" target="_blank">人民邮电出版社</a></li>
-                                    <li><a href="#" target="_blank">上海世纪出版股份有限公司</a></li>
-                                    <li><a href="#" target="_blank">电子工业出版社</a></li>
-                                    <li><a href="#" target="_blank">三联书店</a></li>
-                                    <li><a href="#" target="_blank">浙江少年儿童出版社</a></li>
-                                    <li><a href="#" target="_blank">人民文学出版社</a></li>
-                                    <li><a href="#" target="_blank">外语教学与研究出版社</a></li>
-                                    <li><a href="#" target="_blank">中信出版社</a></li>
-                                    <li><a href="#" target="_blank">化学工业出版社</a></li>
-                                    <li><a href="#" target="_blank">北京大学出版社</a></li>
-                                </ul>
-                                </dd>
-                            </dl>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <h3><span>·</span><a href="">图书</a>、<a href="">音像</a>、<a href="">数字商品</a></h3>
-                    <div class="item-list clearfix">
-                        <div class="close">x</div>
-                        <div class="subitem">
-                            <dl class="fore1">
-                                <dt><a href="#">电子书4</a></dt>
-                                <dd><em><a href="#">免费</a></em><em><a href="#">小说</a></em><em><a href="#">励志与成功</a></em><em><a href="#">婚恋/两性</a></em><em><a href="#">文学</a></em><em><a href="#">经管</a></em><em><a href="#">畅读VIP</a></em></dd>
-                            </dl>
-                            <dl class="fore2">
-                                <dt><a href="#">数字音乐</a></dt>
-                                <dd><em><a href="#">通俗流行</a></em><em><a href="#">古典音乐</a></em><em><a href="#">摇滚说唱</a></em><em><a href="#">爵士蓝调</a></em><em><a href="#">乡村民谣</a></em><em><a href="#">有声读物</a></em></dd>
-                            </dl>
-                            <dl class="fore3">
-                                <dt><a href="#">音像</a></dt>
-                                <dd><em><a href="#">音乐</a></em><em><a href="#">影视</a></em><em><a href="#">教育音像</a></em><em><a href="#">游戏</a></em></dd>
-                            </dl>
-                            <dl class="fore4">
-                                <dt>文艺</dt>
-                                <dd><em><a href="#">小说</a></em><em><a href="#">文学</a></em><em><a href="#">青春文学</a></em><em><a href="#">传记</a></em><em><a href="#">艺术</a></em></dd>
-                            </dl>
-                            <dl class="fore5">
-                                <dt>人文社科</dt>
-                                <dd><em><a href="#">历史</a></em><em><a href="#">心理学</a></em><em><a href="#">政治/军事</a></em><em><a href="#">国学/古籍</a></em><em><a href="#">哲学/宗教</a></em><em><a href="#">社会科学</a></em></dd>
-                            </dl>
-                            <dl class="fore6">
-                                <dt>经管励志</dt>
-                                <dd><em><a href="#">经济</a></em><em><a href="#">金融与投资</a></em><em><a href="#">管理</a></em><em><a href="#">励志与成功</a></em></dd>
-                            </dl>
-                            <dl class="fore7">
-                                <dt>生活</dt>
-                                <dd><em><a href="#">家庭与育儿</a></em><em><a href="#">旅游/地图</a></em><em><a href="#">烹饪/美食</a></em><em><a href="#">时尚/美妆</a></em><em><a href="#">家居</a></em><em><a href="#">婚恋与两性</a></em><em><a href="#">娱乐/休闲</a></em><em><a href="#">健身与保健</a></em><em><a href="#">动漫/幽默</a></em><em><a href="#">体育/运动</a></em></dd>
-                            </dl>
-                            <dl class="fore8">
-                                <dt>科技</dt>
-                                <dd><em><a href="#">科普</a></em><em><a href="#">IT</a></em><em><a href="#">建筑</a></em><em><a href="#">医学</a></em><em><a href="#">工业技术</a></em><em><a href="#">电子/通信</a></em><em><a href="#">农林</a></em><em><a href="#">科学与自然</a></em></dd>
-                            </dl>
-                            <dl class="fore9">
-                                <dt>少儿</dt>
-                                <dd><em><a href="#">少儿</a></em><em><a href="#">0-2岁</a></em><em><a href="#">3-6岁</a></em><em><a href="#">7-10岁</a></em><em><a href="#">11-14岁</a></em></dd>
-                            </dl>
-                        </div>
-                        <div class="cat-right">
-                            <dl class="categorys-promotions" clstag="homepage|keycount|home2013|0601c">
-                                <dd>
-                                <ul>
-                                    <li><a href="#" target="_blank"><img src="images/rBEhWFJTydgIAAAAAAAiD8_1J3AAAD5mAMC0SYAACIn230.jpg" width="194" height="70" title="特价书满减"></a></li>
-                                    <li><a href="#" target="_blank"><img src="images/rBEhVlJTyt8IAAAAAAAiq1D-0D8AAD7_gIE2KUAACLD102.jpg" width="194" height="70" title="重磅独家"></a></li>
-                                </ul>
-                                </dd>
-                            </dl>
-                            <dl class="categorys-brands" clstag="homepage|keycount|home2013|0601d">
-                                <dt>推荐品牌出版商</dt>
-                                <dd>
-                                <ul>
-                                    <li><a href="#" target="_blank">中华书局</a></li>
-                                    <li><a href="#" target="_blank">人民邮电出版社</a></li>
-                                    <li><a href="#" target="_blank">上海世纪出版股份有限公司</a></li>
-                                    <li><a href="#" target="_blank">电子工业出版社</a></li>
-                                    <li><a href="#" target="_blank">三联书店</a></li>
-                                    <li><a href="#" target="_blank">浙江少年儿童出版社</a></li>
-                                    <li><a href="#" target="_blank">人民文学出版社</a></li>
-                                </ul>
-                                </dd>
-                            </dl>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <h3><span>·</span><a href="">图书</a>、<a href="">音像</a>、<a href="">数字商品</a></h3>
-                    <div class="item-list clearfix">
-                        <div class="close">x</div>
-                        <div class="subitem">
-                            <dl class="fore1">
-                                <dt><a href="#">电子书5</a></dt>
-                                <dd><em><a href="#">免费</a></em><em><a href="#">小说</a></em><em><a href="#">励志与成功</a></em><em><a href="#">婚恋/两性</a></em><em><a href="#">文学</a></em><em><a href="#">经管</a></em><em><a href="#">畅读VIP</a></em></dd>
-                            </dl>
-                            <dl class="fore2">
-                                <dt><a href="#">数字音乐</a></dt>
-                                <dd><em><a href="#">通俗流行</a></em><em><a href="#">古典音乐</a></em><em><a href="#">摇滚说唱</a></em><em><a href="#">爵士蓝调</a></em><em><a href="#">乡村民谣</a></em><em><a href="#">有声读物</a></em></dd>
-                            </dl>
-                            <dl class="fore3">
-                                <dt><a href="#">音像</a></dt>
-                                <dd><em><a href="#">音乐</a></em><em><a href="#">影视</a></em><em><a href="#">教育音像</a></em><em><a href="#">游戏</a></em></dd>
-                            </dl>
-                            <dl class="fore4">
-                                <dt>文艺</dt>
-                                <dd><em><a href="#">小说</a></em><em><a href="#">文学</a></em><em><a href="#">青春文学</a></em><em><a href="#">传记</a></em><em><a href="#">艺术</a></em></dd>
-                            </dl>
-                            <dl class="fore5">
-                                <dt>人文社科</dt>
-                                <dd><em><a href="#">历史</a></em><em><a href="#">心理学</a></em><em><a href="#">政治/军事</a></em><em><a href="#">国学/古籍</a></em><em><a href="#">哲学/宗教</a></em><em><a href="#">社会科学</a></em></dd>
-                            </dl>
-                            <dl class="fore6">
-                                <dt>经管励志</dt>
-                                <dd><em><a href="#">经济</a></em><em><a href="#">金融与投资</a></em><em><a href="#">管理</a></em><em><a href="#">励志与成功</a></em></dd>
-                            </dl>
-                            <dl class="fore7">
-                                <dt>生活</dt>
-                                <dd><em><a href="#">家庭与育儿</a></em><em><a href="#">旅游/地图</a></em><em><a href="#">烹饪/美食</a></em><em><a href="#">时尚/美妆</a></em><em><a href="#">家居</a></em><em><a href="#">婚恋与两性</a></em><em><a href="#">娱乐/休闲</a></em><em><a href="#">健身与保健</a></em><em><a href="#">动漫/幽默</a></em><em><a href="#">体育/运动</a></em></dd>
-                            </dl>
-                            <dl class="fore8">
-                                <dt>科技</dt>
-                                <dd><em><a href="#">科普</a></em><em><a href="#">IT</a></em><em><a href="#">建筑</a></em><em><a href="#">医学</a></em><em><a href="#">工业技术</a></em><em><a href="#">电子/通信</a></em><em><a href="#">农林</a></em><em><a href="#">科学与自然</a></em></dd>
-                            </dl>
-                        </div>
-                        <div class="cat-right">
-                            <dl class="categorys-promotions" clstag="homepage|keycount|home2013|0601c">
-                                <dd>
-                                <ul>
-                                    <li><a href="#" target="_blank"><img src="images/rBEhWFJTydgIAAAAAAAiD8_1J3AAAD5mAMC0SYAACIn230.jpg" width="194" height="70" title="特价书满减"></a></li>
-                                    <li><a href="#" target="_blank"><img src="images/rBEhVlJTyt8IAAAAAAAiq1D-0D8AAD7_gIE2KUAACLD102.jpg" width="194" height="70" title="重磅独家"></a></li>
-                                </ul>
-                                </dd>
-                            </dl>
-                            <dl class="categorys-brands" clstag="homepage|keycount|home2013|0601d">
-                                <dt>推荐品牌出版商</dt>
-                                <dd>
-                                <ul>
-                                    <li><a href="#" target="_blank">中华书局</a></li>
-                                    <li><a href="#" target="_blank">人民邮电出版社</a></li>
-                                    <li><a href="#" target="_blank">上海世纪出版股份有限公司</a></li>
-                                    <li><a href="#" target="_blank">电子工业出版社</a></li>
-                                    <li><a href="#" target="_blank">三联书店</a></li>
-                                </ul>
-                                </dd>
-                            </dl>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <h3><span>·</span><a href="">图书</a>、<a href="">音像</a>、<a href="">数字商品</a></h3>
-                    <div class="item-list clearfix">
-                        <div class="close">x</div>
-                        <div class="subitem">
-                            <dl class="fore1">
-                                <dt><a href="#">电子书6</a></dt>
-                                <dd><em><a href="#">免费</a></em><em><a href="#">小说</a></em><em><a href="#">励志与成功</a></em><em><a href="#">婚恋/两性</a></em><em><a href="#">文学</a></em><em><a href="#">经管</a></em><em><a href="#">畅读VIP</a></em></dd>
-                            </dl>
-                            <dl class="fore2">
-                                <dt><a href="#">数字音乐</a></dt>
-                                <dd><em><a href="#">通俗流行</a></em><em><a href="#">古典音乐</a></em><em><a href="#">摇滚说唱</a></em><em><a href="#">爵士蓝调</a></em><em><a href="#">乡村民谣</a></em><em><a href="#">有声读物</a></em></dd>
-                            </dl>
-                            <dl class="fore3">
-                                <dt><a href="#">音像</a></dt>
-                                <dd><em><a href="#">音乐</a></em><em><a href="#">影视</a></em><em><a href="#">教育音像</a></em><em><a href="#">游戏</a></em></dd>
-                            </dl>
-                            <dl class="fore4">
-                                <dt>文艺</dt>
-                                <dd><em><a href="#">小说</a></em><em><a href="#">文学</a></em><em><a href="#">青春文学</a></em><em><a href="#">传记</a></em><em><a href="#">艺术</a></em></dd>
-                            </dl>
-                            <dl class="fore5">
-                                <dt>人文社科</dt>
-                                <dd><em><a href="#">历史</a></em><em><a href="#">心理学</a></em><em><a href="#">政治/军事</a></em><em><a href="#">国学/古籍</a></em><em><a href="#">哲学/宗教</a></em><em><a href="#">社会科学</a></em></dd>
-                            </dl>
-                            <dl class="fore6">
-                                <dt>经管励志</dt>
-                                <dd><em><a href="#">经济</a></em><em><a href="#">金融与投资</a></em><em><a href="#">管理</a></em><em><a href="#">励志与成功</a></em></dd>
-                            </dl>
-                            <dl class="fore7">
-                                <dt>生活</dt>
-                                <dd><em><a href="#">家庭与育儿</a></em><em><a href="#">旅游/地图</a></em><em><a href="#">烹饪/美食</a></em><em><a href="#">时尚/美妆</a></em><em><a href="#">家居</a></em><em><a href="#">婚恋与两性</a></em><em><a href="#">娱乐/休闲</a></em><em><a href="#">健身与保健</a></em><em><a href="#">动漫/幽默</a></em><em><a href="#">体育/运动</a></em></dd>
-                            </dl>
-                            <dl class="fore8">
-                                <dt>科技</dt>
-                                <dd><em><a href="#">科普</a></em><em><a href="#">IT</a></em><em><a href="#">建筑</a></em><em><a href="#">医学</a></em><em><a href="#">工业技术</a></em><em><a href="#">电子/通信</a></em><em><a href="#">农林</a></em><em><a href="#">科学与自然</a></em></dd>
-                            </dl>
-                            <dl class="fore9">
-                                <dt>少儿</dt>
-                                <dd><em><a href="#">少儿</a></em><em><a href="#">0-2岁</a></em><em><a href="#">3-6岁</a></em><em><a href="#">7-10岁</a></em><em><a href="#">11-14岁</a></em></dd>
-                            </dl>
-                            <dl class="fore10">
-                                <dt>教育</dt>
-                                <dd><em><a href="#">教材教辅</a></em><em><a href="#">考试</a></em><em><a href="#">外语学习</a></em></dd>
-                            </dl>
-                            <dl class="fore11">
-                                <dt>其它</dt>
-                                <dd><em><a href="#">英文原版书</a></em><em><a href="#">港台图书</a></em><em><a href="#">工具书</a></em><em><a href="#">套装书</a></em><em><a href="#">杂志/期刊</a></em></dd>
-                            </dl>
-                        </div>
-                        <div class="cat-right">
-                            <dl class="categorys-promotions" clstag="homepage|keycount|home2013|0601c">
-                                <dd>
-                                <ul>
-                                    <li><a href="#" target="_blank"><img src="images/rBEhWFJTydgIAAAAAAAiD8_1J3AAAD5mAMC0SYAACIn230.jpg" width="194" height="70" title="特价书满减"></a></li>
-                                    <li><a href="#" target="_blank"><img src="images/rBEhVlJTyt8IAAAAAAAiq1D-0D8AAD7_gIE2KUAACLD102.jpg" width="194" height="70" title="重磅独家"></a></li>
-                                </ul>
-                                </dd>
-                            </dl>
-                            <dl class="categorys-brands" clstag="homepage|keycount|home2013|0601d">
-                                <dt>推荐品牌出版商</dt>
-                                <dd>
-                                <ul>
-                                    <li><a href="#" target="_blank">中华书局</a></li>
-                                    <li><a href="#" target="_blank">人民邮电出版社</a></li>
-                                    <li><a href="#" target="_blank">上海世纪出版股份有限公司</a></li>
-                                    <li><a href="#" target="_blank">电子工业出版社</a></li>
-                                    <li><a href="#" target="_blank">三联书店</a></li>
-                                    <li><a href="#" target="_blank">浙江少年儿童出版社</a></li>
-                                    <li><a href="#" target="_blank">人民文学出版社</a></li>
-                                    <li><a href="#" target="_blank">外语教学与研究出版社</a></li>
-                                    <li><a href="#" target="_blank">中信出版社</a></li>
-                                    <li><a href="#" target="_blank">化学工业出版社</a></li>
-                                    <li><a href="#" target="_blank">北京大学出版社</a></li>
-                                </ul>
-                                </dd>
-                            </dl>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--所有分类 End-->
-        <script type="text/javascript">
-        $('.all-sort-list > .item').hover(function(){
-        var eq = $('.all-sort-list > .item').index(this),               //获取当前滑过是第几个元素
-        h = $('.all-sort-list').offset().top,                       //获取当前下拉菜单距离窗口多少像素
-        s = $(window).scrollTop(),                                  //获取游览器滚动了多少高度
-        i = $(this).offset().top,                                   //当前元素滑过距离窗口多少像素
-        item = $(this).children('.item-list').height(),             //下拉菜单子类内容容器的高度
-        sort = $('.all-sort-list').height();                        //父类分类列表容器的高度
-        
-        if ( item < sort ){                                             //如果子类的高度小于父类的高度
-        if ( eq == 0 ){
-        $(this).children('.item-list').css('top', (i-h));
-        } else {
-        $(this).children('.item-list').css('top', (i-h)+1);
-        }
-        } else {
-        if ( s > h ) {                                              //判断子类的显示位置，如果滚动的高度大于所有分类列表容器的高度
-        if ( i-s > 0 ){                                         //则 继续判断当前滑过容器的位置 是否有一半超出窗口一半在窗口内显示的Bug,
-        $(this).children('.item-list').css('top', (s-h)+2 );
-        } else {
-        $(this).children('.item-list').css('top', (s-h)-(-(i-s))+2 );
-        }
-        } else {
-        $(this).children('.item-list').css('top', 3 );
-        }
-        }
-        $(this).addClass('hover');
-        $(this).children('.item-list').css('display','block');
-        },function(){
-        $(this).removeClass('hover');
-        $(this).children('.item-list').css('display','none');
-        });
-        $('.item > .item-list > .close').click(function(){
-        $(this).parent().parent().removeClass('hover');
-        $(this).parent().hide();
-        });
-        </script>
-    </body>
-</html>
+        </body>
+    </html>
