@@ -118,6 +118,8 @@ body { height:1500px; }
     float:left;
 }
 
+html,body {height:100%;}
+.special,.special .jumbotron {height:100%;}
 
 /*
 本代码由【素材家园】收集并编辑整理;

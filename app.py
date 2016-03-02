@@ -167,6 +167,8 @@ def getWish():
             wishes = cursor.fetchall()
             cursor.close()
             cursor = con.cursor()
+            # use varaible _sp_GetWishByUser_3 to store store-procedure(sp_GetWishByUser)'s out parameter
+            # @xxx is varaible
             cursor.execute('SELECT @_sp_GetWishByUser_3');
              
             outParam = cursor.fetchall()
@@ -386,4 +388,4 @@ def test():
     return render_template('test.html')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', debug=True)
